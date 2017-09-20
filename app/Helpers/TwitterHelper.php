@@ -126,6 +126,13 @@ class TwitterHelper implements TwitterHelperContract
         return $followerList;
     }
 
+    /**
+     * Find out what the range of a tweet is by URL. This function is a wrapper
+     * to collect all the statistics for a specific tweet.
+     *
+     * @param $url
+     * @return array
+     */
     public function getRangeStatisticsByUrl($url) {
         $tweetId = $this->getTweetIdByUrl($url);
         if (!$tweetId)
@@ -159,6 +166,12 @@ class TwitterHelper implements TwitterHelperContract
         return $result;
     }
 
+    /**
+     * Get a list of user data by an array of users
+     *
+     * @param array $userList
+     * @return array
+     */
     public function getUsersLookup(array $userList) {
         sort($userList);
         $hash = md5(serialize($userList));
